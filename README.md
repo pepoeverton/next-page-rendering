@@ -1,8 +1,9 @@
-# Next.js v10 Data Fetching Boilerplate
+# Next.js v11 Data Fetching Boilerplate
 
 In this repo you will find all the data fetching methods like:
-Server sider rendering, static site generation, incremental static regeneration on basic react client-side rendering.
+    1) Static-Site Generation (SSG)
+    2) Server-Sider Rendering (SSR)
+    3) Incremental Static Regeneration
+    4) Client-Side Rendering
 
-The fetching methods are getServerSideProps, getStaticProps. The old method was getInitialProps.
-
-In another video, we will talk about what getStaticPaths does.
+The fetching methods are getServerSideProps, getStaticProps.
