@@ -9,6 +9,10 @@ Next.js support **4 rendering strategies** to generate, deliver and render a Rea
 
 The fetching methods are **getServerSideProps**, **getStaticProps**.
 
+## Demo
+Live demo for performance and Lighhouse testing with Chrome DevTools available here:  
+[Next.js Page Rendering Demo](https://next-page-rendering.vercel.app/ "Next.js Page Rendering Demo")
+
 ## Tutorial
 Learn how page rendering and data fetching works in Next.js:  
 [Next.js Page Rendering Definitive Guide](https://guydumais.digital/blog/next-js-page-rendering-definitive-guide "Next.js Page Rendering Definitive Guide")
