@@ -36,7 +36,7 @@ export default function Home() {
 
     <h2>Github</h2>
     <p>Source code available on Github:<br/>
-      <a href="https://github.com">Next.js Page Rendering source code</a>
+      <a href="https://github.com/guydumais/next-page-rendering">Next.js Page Rendering source code</a>
     </p>
     <h3>Version</h3>
     <p>{packageJson.version}</p>
