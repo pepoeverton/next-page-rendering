@@ -1,3 +1,4 @@
+![Alt](/public/guy-dumais-logo.svg "Guy Dumais")
 # Next.js v11 Data Fetching Boilerplate
 
 In this repo you will find all the data fetching methods like:
