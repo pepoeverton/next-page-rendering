@@ -15,4 +15,4 @@ Live demo for performance and Lighhouse testing with Chrome DevTools available h
 
 ## Tutorial
 Learn how page rendering and data fetching works in Next.js:  
-[Next.js Page Rendering Definitive Guide](https://guydumais.digital/blog/next-js-page-rendering-definitive-guide "Next.js Page Rendering Definitive Guide")
+[Next.js: The Ultimate Cheat Sheet To Page Rendering](https://guydumais.digital/blog/next-js-the-ultimate-cheat-sheet-to-page-rendering/ "Next.js: The Ultimate Cheat Sheet To Page Rendering")
