@@ -48,7 +48,7 @@ export default function Home() {
 
     <h2>Tutorial</h2>
     <p>Learn how page rendering and data fetching works in Next.js:<br/>
-      <a href="https://guydumais.digital/blog/next-js-page-rendering-definitive-guide">Next.js Page Rendering Definitive Guide</a>
+      <a href="https://guydumais.digital/blog/next-js-the-ultimate-cheat-sheet-to-page-rendering/">Next.js: The Ultimate Cheat Sheet To Page Rendering</a>
     </p>
 
     </>
