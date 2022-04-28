@@ -1,0 +1,60 @@
+name: Deploy
+on:
+  push:
+    tags:
+      - '**'
+
+env:
+  RUN_REGION: northamerica-northeast1
+  SERVICE_NAME: api
+
+jobs:
+  deploy:
+    name: Deploy to CloudRun
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Extract the current tag and set it as environment variable
+      - name: Extract tag
+        run: echo "::set-env name=TAG::$(echo ${GITHUB_REF##*/})"
+
+      # This step stops the pipeline if current Tag doesn't contain 'staging' or 'production'
+      - name: Invalid tag
+        if:  (! contains(env.TAG, 'staging')) && (! contains(env.TAG, 'production'))
+        run: |
+          echo "Specify 'staging' or production in your tag."
+          exit 1
+
+      # If Tag contains 'staging', set staging environment
+      - name: Set STAGING env
+        if: contains(env.TAG, 'staging')
+        run: |
+          echo "::set-env name=PROJECT_ID::npr-staging"
+          echo "::set-env name=SECRET_KEY_NAME::GITHUB_STAGING_SECRET"
+
+      # If Tag contains 'production', set production environment
+      - name: Set PRODUCTION env
+        if: contains(env.TAG, 'production')
+        run: |
+          echo "::set-env name=PROJECT_ID::npr-production"
+          echo "::set-env name=SECRET_KEY_NAME::GITHUB_PRODUCTION_SECRET"
+
+      # Install and set gcloud
+      - name: Set up gcloud
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          service_account_key: ${{ secrets[env.SECRET_KEY_NAME] }}
+          export_default_credentials: true
+
+      # Deploy to CloudRun
+      - name: Deploy to CloudRun
+        run: |-
+          gcloud run deploy "$SERVICE_NAME" \
+            --quiet \
+            --image "eu.gcr.io/my-container-project/$SERVICE_NAME:$GITHUB_SHA" \
+            --region "$RUN_REGION" \
+            --platform "managed" \
+            --allow-unauthenticated \
+            --memory=512Mi
